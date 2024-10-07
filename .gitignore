@@ -1,0 +1,6 @@
+.terraform
+*.backup
+*.hcl
+*.tfstate
+.DS_Store
+.concourse.env
