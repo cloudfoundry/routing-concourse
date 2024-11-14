@@ -49,7 +49,7 @@ variable "data_disk" {
 
 variable "vmsize" {
   description = "VM type to be used for concourse"
-  default     = "e2-standard-4"
+  default     = "t2d-standard-4"
 }
 
 # Provision options
