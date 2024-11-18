@@ -43,11 +43,11 @@ variable "disk_size" {
 }
 
 variable "data_disk" {
-  description = "Additional disk to hold data"
+  description = "device name for concourse volume"
   default     = "sdb"
 }
 
-variable "vmsize" {
+variable "vm_size" {
   description = "VM type to be used for concourse"
   default     = "t2d-standard-4"
 }

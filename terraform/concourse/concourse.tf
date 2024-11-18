@@ -68,7 +68,7 @@ resource "google_compute_firewall" "https" {
 
 resource "google_compute_instance" "concourse" {
   name                      = var.hostname
-  machine_type              = var.vmsize
+  machine_type              = var.vm_size
   zone                      = var.zone
   allow_stopping_for_update = true
 
