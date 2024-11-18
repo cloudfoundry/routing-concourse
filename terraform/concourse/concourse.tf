@@ -25,7 +25,7 @@ resource "google_dns_record_set" "concourse" {
 
 resource "google_compute_disk" "concourse_volume" {
   name = var.data_disk
-  type = "pd-standard"
+  type = var.disk_type
   size = var.disk_size
   zone = var.zone
 }
