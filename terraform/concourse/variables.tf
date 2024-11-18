@@ -39,7 +39,12 @@ variable "hostname" {
 # VM parameters
 variable "disk_size" {
   description = "size in GB for concourse volume"
-  default     = 600
+  default     = 200
+}
+
+variable "disk_type" {
+  description = "disk type for concourse volume"
+  default     = "pd-balanced"
 }
 
 variable "data_disk" {
