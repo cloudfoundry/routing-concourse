@@ -30,3 +30,17 @@ tee /etc/apt/sources.list.d/docker.list > /dev/null
 VERSION_STRING=$1
 apt-get -qq update
 apt-get -qq install docker-ce="$VERSION_STRING" docker-ce-cli="$VERSION_STRING" containerd.io docker-buildx-plugin docker-compose-plugin
+
+#create/enable swapping
+# Check if the swap entry already exists in /etc/fstab
+if ! grep -q "swap" /etc/fstab; then
+  fallocate -l 4G /swapfile
+  chmod 600 /swapfile
+  mkswap /swapfile
+  swapon /swapfile
+  swapon --show
+  echo "/swapfile none swap sw 0 0" | tee -a /etc/fstab > /dev/null
+  echo "Swap file created and enabled, and entry added to /etc/fstab."
+else
+   echo "Swap entry already exists in /etc/fstab. Skipping swap setup."
+fi
