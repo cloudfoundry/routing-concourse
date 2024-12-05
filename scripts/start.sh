@@ -64,6 +64,13 @@ fi
 
 docker compose --env-file "/concourse/.concourse.env" up -d
 
+#sleep for 5 seconds to ensure concourse is up and running
+echo "Waiting for 5 seconds before 'fly' install..."
+sleep 5
+
+# Download and install the fly CLI from local Concourse instance
+curl -o /usr/local/bin/fly -k 'https://localhost/api/v1/cli?arch=amd64&platform=linux' && chmod +x /usr/local/bin/fly
+
 # If cgroups are v2 then we need to switch to v1
 if [ -f /sys/fs/cgroup/cgroup.controllers ] ; then
   sed -i '/^GRUB_CMDLINE_LINUX=\"\"/ s/\"$/systemd.unified_cgroup_hierarchy=0\"/' /etc/default/grub
