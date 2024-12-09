@@ -64,9 +64,9 @@ fi
 
 docker compose --env-file "/concourse/.concourse.env" up -d
 
-#sleep for 5 seconds to ensure concourse is up and running
-echo "Waiting for 5 seconds before 'fly' install..."
-sleep 5
+# retry for 30 seconds every second to reach the concourse api info endpoint
+# to make sure that concourse is up.
+curl -k --retry 30 --retry-delay 1 --max-time 1 --retry-all-errors --fail 'https://localhost/api/v1/info' || { echo "Concourse did not become healthy within 30 seconds."; exit 1; }
 
 # Download and install the fly CLI from local Concourse instance
 curl -o /usr/local/bin/fly -k 'https://localhost/api/v1/cli?arch=amd64&platform=linux' && chmod +x /usr/local/bin/fly

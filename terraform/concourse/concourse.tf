@@ -160,8 +160,8 @@ resource "terraform_data" "provision_concourse" {
       gcloud compute ssh ${var.hostname} --zone ${var.zone} --tunnel-through-iap --command "\
       sudo /concourse/scripts/install.sh ${var.docker_ver} ${var.data_disk} ;\
       sudo /concourse/scripts/start.sh ${var.hostname}.${var.dns_zone_fqdn} ${var.force_new_cert} ;\
-      // cron tab runs every weekend e.g. on Sunday at midnight ;\
-      ! grep -q '0 0 * * 0 /concourse/scripts/prune_workers.sh' && echo '0 0 * * 0 /concourse/scripts/prune_workers.sh' | sudo tee -a /etc/crontab" --verbosity=error
+      // cron tab runs every sunday
+      sudo ln -nfs /concourse/scripts/prune_workers.sh /etc/cron.weekly/prune_workers" --verbosity=error
      CMD
   }
 }
