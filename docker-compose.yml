@@ -66,7 +66,7 @@ services:
       CONCOURSE_POSTGRES_DATABASE: concourse
       CONCOURSE_GITHUB_CLIENT_ID: "${CONCOURSE_GITHUB_CLIENT_ID}"
       CONCOURSE_GITHUB_CLIENT_SECRET: "${CONCOURSE_GITHUB_CLIENT_SECRET}"
-      CONCOURSE_MAIN_TEAM_GITHUB_TEAM: cloudfoundry:wg-app-runtime-platform-networking-extensions-approvers
+      CONCOURSE_MAIN_TEAM_GITHUB_TEAM: cloudfoundry:wg-app-runtime-platform-networking-approvers
       CONCOURSE_ADD_LOCAL_USER: admin_concourse:${CONCOURSE_ADMIN_PWD}
       CONCOURSE_MAIN_TEAM_LOCAL_USER: admin_concourse
       CONCOURSE_SESSION_SIGNING_KEY: /concourse-keys/session_signing_key
