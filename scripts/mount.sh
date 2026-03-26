@@ -6,7 +6,7 @@ TARGET="$2"
 FSTYPE=ext4
 
 # NVMe devices (e.g. nvme1n1) use 'p1' suffix for partitions, others (sdb, xvdf) use '1'
-if echo "$1" | grep -q "nvme"; then
+if grep -q "nvme" <<< "$1"; then
   PART="${DEV}p1"
 else
   PART="${DEV}1"

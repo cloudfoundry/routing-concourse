@@ -21,8 +21,11 @@ if [ ! -f /sys/fs/cgroup/cgroup.controllers ] ; then
   GRUB_FILE=/etc/default/grub
   sed -i -e 's/ systemd\.unified_cgroup_hierarchy=[01]//g' -e 's/ cgroup_no_v1=all//g' "$GRUB_FILE"
   sed -i '/^GRUB_CMDLINE_LINUX\(_DEFAULT\)\?="/ s/"$/ systemd.unified_cgroup_hierarchy=1 cgroup_no_v1=all"/' "$GRUB_FILE"
-  update-grub
-  grub-mkconfig -o /boot/efi/EFI/ubuntu/grub.cfg || true
+  if command -v update-grub &>/dev/null; then
+    update-grub
+  else
+    grub-mkconfig -o /boot/efi/EFI/ubuntu/grub.cfg || true
+  fi
   shutdown -r now
 fi
 
