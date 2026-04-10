@@ -12,7 +12,7 @@ gcloud config set project app-runtime-platform-wg
 gcloud compute ssh concourse --zone europe-west3-a --tunnel-through-iap
 ```
 
-A browser window will open — authenticate with your Google SAP account and grant access to the `gcloud` app.
+A browser window will open — authenticate with your Google account and grant access to the `gcloud` app.
 
 > **Note**: Use `sudo -Es` on the VM to run Docker commands.
 
