@@ -16,7 +16,7 @@ Concourse itself and other services (worker, postgres, nginx, certbot) are deplo
 
 There are multiple ways to log in to Concourse:
 
-- 'main' team membership: Members of `wg-app-runtime-platform-networking-extensions-approvers` team in [cloudfoundry org](https://github.com/orgs/cloudfoundry/people) can log in and do all team operations (build comments, triggering new builds, editing, creating or deleting pipelines, making pipelines publicly viewable)
+- 'main' team membership: Members of `wg-app-runtime-platform-networking-approvers` team in [cloudfoundry org](https://github.com/orgs/cloudfoundry/people) can log in and do all team operations (build comments, triggering new builds, editing, creating or deleting pipelines, making pipelines publicly viewable)
 - Anonymous access is allowed. Pipelines that are publicly exposed will be viewable, but it is not possible to do any operations.
 - Admin access is possible via technical `admin_concourse` user, how to obtain the password from `.concourse.env` is described in [the Deployment section](#deployment) below
 
